@@ -1,26 +1,34 @@
-function App() {
+import Header from './components/Header'
+import { BrowserRouter as Rounter, Routes, Route } from 'react-router-dom'
+import Home from './components/Home'
+import Country from './components/Country'
+import Footer from './components/Footer'
 
-  return (
-    <div className="App">
-      <div className="wrapper">
-        <header className="header">
-          <div className="header__container">
-            header
-          </div>
-        </header>
-        <main className="main">
-          <div className="main__container">
-            main
-          </div>
-        </main>
-        <footer className="footer">
-          <div className="footer__container">
-            footer
-          </div>
-        </footer>
-      </div>
-    </div>
-  )
+function App() {
+    return (
+        <div className="App">
+            <div className="wrapper">
+                <Header/>
+                <main className="main">
+                    <div className="main__container">
+                        <Rounter>
+                            <Routes>
+                                <Route
+                                    path="/"
+                                    element={<Home />}
+                                />
+                                <Route
+                                    path="/country"
+                                    element={<Country />}
+                                />
+                            </Routes>
+                        </Rounter>
+                    </div>
+                </main>
+               <Footer/>
+            </div>
+        </div>
+    )
 }
 
 export default App
