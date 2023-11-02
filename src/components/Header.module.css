@@ -1,0 +1,23 @@
+.header {
+    padding: 30px 0 33px 0;
+    background-color: hsl(0, 0%, 98%);
+    -webkit-box-shadow: 0px 6px 10px -4px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 6px 10px -4px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 6px 10px -4px rgba(34, 60, 80, 0.2);
+}
+
+.headerContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 27px;
+}
+
+.themeToggle {
+    display: flex;
+    background-color: transparent;
+}
