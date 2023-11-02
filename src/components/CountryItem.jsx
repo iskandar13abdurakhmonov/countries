@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
+import { Link } from 'react-router-dom'
 import styles from './CountryItem.module.css'
 
 export default function CountryItem({ country }) {
     console.log(country)
 
     return (
-        <li className={styles.countryItem}>
+        <Link to={`/${country.name.common}`} className={styles.countryItem}>
             <div className={styles.imageBox}>
                 <img
                     src={country.flags.png}
@@ -31,6 +32,6 @@ export default function CountryItem({ country }) {
                     </span>
                 </div>
             </div>
-        </li>
+        </Link>
     )
 }
