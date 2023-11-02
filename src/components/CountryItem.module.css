@@ -1,0 +1,49 @@
+.countryItem {
+    max-width: 264px;
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(0, 0%, 98%);
+    border-radius: 5px;
+}
+
+.imageBox {
+    max-width: 264px;
+    max-height: 160px;
+}
+
+.countryImage {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    width: 100%;
+}
+
+.textBox {
+    padding: 30px 0 46px 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.countryName {
+    margin: 0 0 26px 0;
+    font-weight: 800;
+}
+
+.infos {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.title:not(:last-child) {
+    margin: 0 0 14px 0;
+}
+
+.descr {
+    margin: 0 0 0 6px;
+    font-size: 15px;
+    font-weight: 300;
+}

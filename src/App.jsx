@@ -4,6 +4,8 @@ import Home from './pages/Home'
 import Country from './pages/Country'
 import Footer from './components/Footer'
 import { useEffect, useState } from 'react'
+import Form from './components/Form'
+import CountryList from './components/CountryList'
 
 function App() {
     const [countries, setCountriers] = useState([])
@@ -11,14 +13,14 @@ function App() {
     const [error, setError] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
-    console.log(country)
+    console.log(countries)
 
     useEffect(() => {
         const getCountries = async () => {
             try {
                 setIsLoading(true)
                 const res = await fetch(
-                    'https://restcountries.com/v3.1/name/USA'
+                    'https://restcountries.com/v3.1/all'
                 )
                 if (!res.ok) {
                     throw new Error(
@@ -26,7 +28,7 @@ function App() {
                     )
                 }
                 const data = await res.json()
-                setCountry(data)
+                setCountriers(data)
             } catch (err) {
                 console.log(err)
                 setError(err.message)
@@ -47,7 +49,14 @@ function App() {
                             <Routes>
                                 <Route
                                     path="/"
-                                    element={<Home />}
+                                    element={
+                                        <Home>
+                                            <Form />
+                                            <CountryList
+                                                countries={countries}
+                                            />
+                                        </Home>
+                                    }
                                 />
                                 <Route
                                     path="/country"

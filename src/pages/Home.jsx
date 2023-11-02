@@ -1,10 +1,11 @@
-import Form from '../components/Form'
+/* eslint-disable react/prop-types */
+
 import styles from './Home.module.css'
 
-export default function Home() {
+export default function Home({ children }) {
   return (
     <div className={styles.home}>
-      <Form/>
+      {children}
     </div>
   )
 }

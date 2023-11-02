@@ -1,0 +1,9 @@
+.countryListContainer {
+    margin: 48px 0 0 0;
+}
+
+.countryList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 75px;
+}
