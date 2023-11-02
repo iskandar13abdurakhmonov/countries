@@ -1,5 +1,5 @@
 import Header from './components/Header'
-import { BrowserRouter as Rounter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Rounter, Routes, Route, useSearchParams } from 'react-router-dom'
 import Home from './pages/Home'
 import Country from './pages/Country'
 import Footer from './components/Footer'
@@ -12,8 +12,6 @@ function App() {
     const [country, setCountry] = useState({})
     const [error, setError] = useState('')
     const [isLoading, setIsLoading] = useState(false)
-
-    console.log(countries)
 
     useEffect(() => {
         const getCountries = async () => {
