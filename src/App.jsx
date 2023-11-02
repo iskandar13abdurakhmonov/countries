@@ -9,7 +9,6 @@ import CountryList from './components/CountryList'
 
 function App() {
     const [countries, setCountriers] = useState([])
-    const [country, setCountry] = useState({})
     const [error, setError] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
