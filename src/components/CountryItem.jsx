@@ -1,27 +1,33 @@
+/* eslint-disable react/prop-types */
 import styles from './CountryItem.module.css'
 
-export default function CountryItem() {
+export default function CountryItem({ country }) {
+    console.log(country)
+
     return (
         <li className={styles.countryItem}>
             <div className={styles.imageBox}>
                 <img
-                    className={styles.countryImage}
-                    src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1280px-Flag_of_Germany.svg.png"
+                    src={country.flags.png}
                     alt="germany flag"
                 />
             </div>
             <div className={styles.textBox}>
-                <h2 className={styles.countryName}>Germany</h2>
+                <h2 className={styles.countryName}>{country.name.common}</h2>
                 <div className={styles.infos}>
                     <span className={styles.title}>
                         Population:
-                        <span className={styles.descr}>81,770,900</span>
+                        <span className={styles.descr}>
+                            {country.population}
+                        </span>
                     </span>
                     <span className={styles.title}>
-                        Region: <span className={styles.descr}>Europe</span>
+                        Region:{' '}
+                        <span className={styles.descr}>{country.region}</span>
                     </span>
                     <span className={styles.title}>
-                        Capital: <span className={styles.descr}>Berlin</span>
+                        Capital:{' '}
+                        <span className={styles.descr}>{country.capital}</span>
                     </span>
                 </div>
             </div>

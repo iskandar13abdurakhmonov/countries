@@ -4,13 +4,18 @@ import styles from './CountryList.module.css'
 
 export default function CountryList({ countries }) {
 
-    
+    const newCountries = countries.slice(0, 8)
 
-  return (
-    <div className={styles.countryListContainer}>
-        <ul className={styles.countryList}>
-            <CountryItem/>
-        </ul>
-    </div>
-  )
+    return (
+        <div className={styles.countryListContainer}>
+            <ul className={styles.countryList}>
+                {newCountries.map((country) => (
+                    <CountryItem
+                        key={country.name.common}
+                        country={country}
+                    />
+                ))}
+            </ul>
+        </div>
+    )
 }
