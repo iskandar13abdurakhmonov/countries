@@ -3,13 +3,9 @@
     flex-direction: column;
 }
 
-.top {
+.top {}
 
-}
-
-.backBtn {
-
-}
+.backBtn {}
 
 .box {
     display: flex;
@@ -58,9 +54,7 @@
     margin: 0 0 20px 0;
 }
 
-.descr {
-
-}
+.descr {}
 
 .infoRight {
     display: grid;
@@ -68,18 +62,24 @@
 }
 
 .borderCountriesBox {
-
+    display: flex;
+    align-items: center;
 }
 
-.borderCountriesTitle {
+.borderCountriesTitle {}
 
-}
-
-.borderCountries {
-
-}
+.borderCountries {}
 
 .borderCountry {
-
+    padding: 9px 28px;
+    background-color: transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 4px 12px -6px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 4px 12px -6px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 4px 12px -6px rgba(34, 60, 80, 0.2);
 }
 
+.borderCountry:not(:last-child) {
+    margin: 0 10px 0 0;
+}

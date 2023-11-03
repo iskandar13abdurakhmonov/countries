@@ -14,7 +14,12 @@ export default function Country() {
 
     const navigate = useNavigate()
 
+    const borders = country.borders
+
+    console.log(borders)
+
     console.log(country)
+    console.log(country?.currencies?.TWD?.name)
 
     useEffect(() => {
         const getCountries = async () => {
@@ -62,20 +67,28 @@ export default function Country() {
                     alt="The Flag of Belgium"
                 />
                 <div className={styles.info}>
-                    <h2 className={styles.countryName}>{country?.name?.official}</h2>
+                    <h2 className={styles.countryName}>
+                        {country?.name?.official}
+                    </h2>
                     <div className={styles.infoBox}>
                         <div className={styles.infoLeft}>
                             <span className={styles.title}>
                                 Native Name:{' '}
-                                <span className={styles.descr}>{country?.name?.nativeName?.zho?.official}</span>
+                                <span className={styles.descr}>
+                                    {country?.name?.nativeName?.zho?.official}
+                                </span>
                             </span>
                             <span className={styles.title}>
                                 Population:{' '}
-                                <span className={styles.descr}>{country?.population}</span>
+                                <span className={styles.descr}>
+                                    {country?.population}
+                                </span>
                             </span>
                             <span className={styles.title}>
                                 Region:{' '}
-                                <span className={styles.descr}>{country?.region}</span>
+                                <span className={styles.descr}>
+                                    {country?.region}
+                                </span>
                             </span>
                             <span className={styles.title}>
                                 Sub Region:{' '}
@@ -85,22 +98,28 @@ export default function Country() {
                             </span>
                             <span className={styles.title}>
                                 Capital:{' '}
-                                <span className={styles.descr}>{country?.capital}</span>
+                                <span className={styles.descr}>
+                                    {country?.capital}
+                                </span>
                             </span>
                         </div>
                         <div className={styles.infoRight}>
                             <span className={styles.title}>
                                 Top Level Domain:{' '}
-                                <span className={styles.descr}>{country?.tld}</span>
+                                <span className={styles.descr}>
+                                    {country?.tld}
+                                </span>
                             </span>
                             <span className={styles.title}>
                                 Currencies:{' '}
-                                <span className={styles.descr}>{country?.currencies?.TWD?.name}</span>
+                                <span className={styles.descr}>
+                                    {country?.currencies?.[0]?.name}
+                                </span>
                             </span>
                             <span className={styles.title}>
                                 Languages:{' '}
                                 <span className={styles.descr}>
-                                   {country?.languages?.zho}
+                                    {country?.languages?.zho}
                                 </span>
                             </span>
                         </div>
@@ -110,15 +129,14 @@ export default function Country() {
                             Border Countries:{' '}
                         </span>
                         <div className={styles.borderCountries}>
-                            <button className={styles.borderCountry}>
-                                France
-                            </button>
-                            <button className={styles.borderCountry}>
-                                German
-                            </button>
-                            <button className={styles.borderCountry}>
-                                Netherlands
-                            </button>
+                            {borders && borders.map((border) => (
+                                <button
+                                    key={border}
+                                    className={styles.borderCountry}
+                                >
+                                    {border}
+                                </button>
+                            ))}
                         </div>
                     </div>
                 </div>
