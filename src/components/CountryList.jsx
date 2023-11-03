@@ -11,7 +11,7 @@ export default function CountryList({ countries }) {
             <ul className={styles.countryList}>
                 {newCountries.map((country) => (
                     <CountryItem
-                        key={country.name.common}
+                        key={country.name}
                         country={country}
                     />
                 ))}

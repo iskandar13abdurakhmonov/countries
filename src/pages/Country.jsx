@@ -12,14 +12,11 @@ export default function Country() {
     const [error, setError] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
+    // const currency = Object.values(country?.currencies)[0]?.name;
+
+    console.log(country.currencies)
+
     const navigate = useNavigate()
-
-    const borders = country.borders
-
-    console.log(borders)
-
-    console.log(country)
-    console.log(country?.currencies?.TWD?.name)
 
     useEffect(() => {
         const getCountries = async () => {
@@ -44,6 +41,8 @@ export default function Country() {
         }
         getCountries()
     }, [current])
+
+    const borders = country.borders
 
     const back = () => {
         navigate(-1)
@@ -113,7 +112,16 @@ export default function Country() {
                             <span className={styles.title}>
                                 Currencies:{' '}
                                 <span className={styles.descr}>
-                                    {country?.currencies?.[0]?.name}
+                                    {country.currencies
+                                        ? Object.keys(country.currencies)
+                                              .map(
+                                                  (currencyCode) =>
+                                                      country.currencies[
+                                                          currencyCode
+                                                      ].name
+                                              )
+                                              .join(', ')
+                                        : ''}
                                 </span>
                             </span>
                             <span className={styles.title}>
@@ -129,14 +137,15 @@ export default function Country() {
                             Border Countries:{' '}
                         </span>
                         <div className={styles.borderCountries}>
-                            {borders && borders.map((border) => (
-                                <button
-                                    key={border}
-                                    className={styles.borderCountry}
-                                >
-                                    {border}
-                                </button>
-                            ))}
+                            {borders &&
+                                borders.map((border) => (
+                                    <button
+                                        key={border}
+                                        className={styles.borderCountry}
+                                    >
+                                        {border}
+                                    </button>
+                                ))}
                         </div>
                     </div>
                 </div>

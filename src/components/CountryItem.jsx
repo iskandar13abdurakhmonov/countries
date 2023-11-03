@@ -7,7 +7,7 @@ export default function CountryItem({ country }) {
 
     return (
         <Link
-            to={`/country?current=${country.name.common}`}
+            to={`/country?current=${country.name}`}
             className={styles.countryItem}
         >
             <div className={styles.imageBox}>

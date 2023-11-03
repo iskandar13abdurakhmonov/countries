@@ -17,7 +17,7 @@ function App() {
             try {
                 setIsLoading(true)
                 const res = await fetch(
-                    'https://restcountries.com/v3.1/all'
+                    'http://localhost:3001/countries'
                 )
                 if (!res.ok) {
                     throw new Error(
