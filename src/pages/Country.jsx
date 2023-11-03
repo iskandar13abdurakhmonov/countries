@@ -56,46 +56,59 @@ export default function Country() {
                 </button>
             </div>
             <div className={styles.box}>
-                <div className={styles.imageBackground}>
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/640px-Flag_of_Belgium_%28civil%29.svg.png"
-                        alt="The Flag of Belgium"
-                    />
-                </div>
+                <img
+                    className={styles.imageBackground}
+                    src={country?.flags?.png}
+                    alt="The Flag of Belgium"
+                />
                 <div className={styles.info}>
-                    <h2 className={styles.countryName}>Belgium</h2>
+                    <h2 className={styles.countryName}>{country?.name?.official}</h2>
                     <div className={styles.infoBox}>
                         <div className={styles.infoLeft}>
-                            <span>
-                                Native Name: <span>Belgie</span>
+                            <span className={styles.title}>
+                                Native Name:{' '}
+                                <span className={styles.descr}>{country?.name?.nativeName?.zho?.official}</span>
                             </span>
-                            <span>
-                                Population: <span>11,319,511</span>
+                            <span className={styles.title}>
+                                Population:{' '}
+                                <span className={styles.descr}>{country?.population}</span>
                             </span>
-                            <span>
-                                Region: <span>Europe</span>
+                            <span className={styles.title}>
+                                Region:{' '}
+                                <span className={styles.descr}>{country?.region}</span>
                             </span>
-                            <span>
-                                Sub Region: <span>Westren Europe</span>
+                            <span className={styles.title}>
+                                Sub Region:{' '}
+                                <span className={styles.descr}>
+                                    {country?.subregion}
+                                </span>
                             </span>
-                            <span>
-                                Capital: <span>Brussels</span>
+                            <span className={styles.title}>
+                                Capital:{' '}
+                                <span className={styles.descr}>{country?.capital}</span>
                             </span>
                         </div>
                         <div className={styles.infoRight}>
-                            <span>
-                                Top Level Domain: <span>.be</span>
+                            <span className={styles.title}>
+                                Top Level Domain:{' '}
+                                <span className={styles.descr}>{country?.tld}</span>
                             </span>
-                            <span>
-                                Currencies: <span>Euro</span>
+                            <span className={styles.title}>
+                                Currencies:{' '}
+                                <span className={styles.descr}>{country?.currencies?.TWD?.name}</span>
                             </span>
-                            <span>
-                                Languages: <span>Dutch, French, German</span>
+                            <span className={styles.title}>
+                                Languages:{' '}
+                                <span className={styles.descr}>
+                                   {country?.languages?.zho}
+                                </span>
                             </span>
                         </div>
                     </div>
                     <div className={styles.borderCountriesBox}>
-                        <span>Border Countries: </span>
+                        <span className={styles.borderCountriesTitle}>
+                            Border Countries:{' '}
+                        </span>
                         <div className={styles.borderCountries}>
                             <button className={styles.borderCountry}>
                                 France

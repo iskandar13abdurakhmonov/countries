@@ -1,0 +1,85 @@
+.country {
+    display: flex;
+    flex-direction: column;
+}
+
+.top {
+
+}
+
+.backBtn {
+
+}
+
+.box {
+    display: flex;
+    width: 100%;
+}
+
+.imageBackground {
+    width: 560px;
+    height: 401px;
+    position: relative;
+}
+
+.imageBackground img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.countryName {
+    margin: 0 0 38px 0;
+}
+
+.infoBox {
+    margin: 0 0 84px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.infoLeft {
+    display: grid;
+
+}
+
+.title {
+    margin: 0 0 20px 0;
+}
+
+.descr {
+
+}
+
+.infoRight {
+    display: grid;
+    width: 248px;
+}
+
+.borderCountriesBox {
+
+}
+
+.borderCountriesTitle {
+
+}
+
+.borderCountries {
+
+}
+
+.borderCountry {
+
+}
+

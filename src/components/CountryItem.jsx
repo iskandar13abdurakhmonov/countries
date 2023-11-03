@@ -17,7 +17,7 @@ export default function CountryItem({ country }) {
                 />
             </div>
             <div className={styles.textBox}>
-                <h2 className={styles.countryName}>{country.name.common}</h2>
+                <h2 className={styles.countryName}>{country?.name?.official}</h2>
                 <div className={styles.infos}>
                     <span className={styles.title}>
                         Population:
