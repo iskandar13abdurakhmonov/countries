@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
-import { Link, useNavigate, useSearchParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styles from './CountryItem.module.css'
 
 export default function CountryItem({ country }) {
-    const [searchParams] = useSearchParams()
 
     return (
         <Link
-            to={`/country?current=${country.name}`}
+            to={`/country?current=${country.name.common}`}
             className={styles.countryItem}
         >
             <div className={styles.imageBox}>

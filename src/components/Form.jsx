@@ -55,8 +55,6 @@ export default function Form({
             } else {
                 setNoResults(false)
             }
-
-            console.log(searched)
         }
 
         Search(query)
