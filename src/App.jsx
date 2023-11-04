@@ -1,5 +1,10 @@
 import Header from './components/Header'
-import { BrowserRouter as Rounter, Routes, Route, useSearchParams } from 'react-router-dom'
+import {
+    BrowserRouter as Rounter,
+    Routes,
+    Route,
+    useSearchParams,
+} from 'react-router-dom'
 import Home from './pages/Home'
 import Country from './pages/Country'
 import Footer from './components/Footer'
@@ -11,14 +16,16 @@ function App() {
     const [countries, setCountriers] = useState([])
     const [error, setError] = useState('')
     const [isLoading, setIsLoading] = useState(false)
+    const [country, setCountry] = useState([])
+    const [filteredCountries, setFilteredCountries] = useState([])
+    const [query, setQuery] = useState('')
+    const [noResults, setNoResults] = useState(false)
 
     useEffect(() => {
         const getCountries = async () => {
             try {
                 setIsLoading(true)
-                const res = await fetch(
-                    'http://localhost:3001/countries'
-                )
+                const res = await fetch('https://restcountries.com/v3.1/all')
                 if (!res.ok) {
                     throw new Error(
                         'Something went wrong with fetching the data :('
@@ -26,6 +33,7 @@ function App() {
                 }
                 const data = await res.json()
                 setCountriers(data)
+                setFilteredCountries(data)
             } catch (err) {
                 console.log(err)
                 setError(err.message)
@@ -48,9 +56,17 @@ function App() {
                                     path="/"
                                     element={
                                         <Home>
-                                            <Form />
-                                            <CountryList
+                                            <Form
                                                 countries={countries}
+                                                query={query}
+                                                setQuery={setQuery}
+                                                setFilteredCountries={
+                                                    setFilteredCountries
+                                                }
+                                                setNoResults={setNoResults}
+                                            />
+                                            <CountryList
+                                                filteredCountries={filteredCountries}
                                             />
                                         </Home>
                                     }
