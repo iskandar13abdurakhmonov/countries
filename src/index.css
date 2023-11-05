@@ -62,6 +62,10 @@ body {
   padding: 0 15px;
 }
 
+.App {
+  background-color: hsl(0, 0%, 98%);
+}
+
 .css-1u9des2-indicatorSeparator {
   display: none;
 }

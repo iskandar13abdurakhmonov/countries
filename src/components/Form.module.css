@@ -27,3 +27,14 @@
 .filter {
     width: 200px;
 }
+
+@media (max-width: 740px) {
+    .formContainer {
+        flex-direction: column;
+    }
+
+    .form {
+        margin: 0 0 30px 0;
+        width: 100%;
+    }
+}

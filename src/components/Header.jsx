@@ -7,7 +7,7 @@ export default function Header() {
             <div className={`header__container ${styles.headerContainer}`}>
                 <span className={styles.logo}>Where in the world?</span>
                 <button className={styles.themeToggle}>
-                    <HiOutlineMoon />
+                    <HiOutlineMoon size={21} className={styles.toggleIcon}/>
                     Dark Mode
                 </button>
             </div>

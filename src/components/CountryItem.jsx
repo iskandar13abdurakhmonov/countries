@@ -2,38 +2,55 @@
 import { Link } from 'react-router-dom'
 import styles from './CountryItem.module.css'
 
-export default function CountryItem({ country }) {
+const formatNumber = (number) => {
+    const numberString = String(number)
+    const reversedNumberString = numberString.split('').reverse().join('')
+    const formmattedNumberString = reversedNumberString.replace(
+        /(\d{3})(?=\d)/g,
+        '$1,'
+    )
+    return formmattedNumberString.split('').reverse().join('')
+}
 
+export default function CountryItem({ country }) {
     return (
-        <Link
-            to={`/country?current=${country.name.common}`}
-            className={styles.countryItem}
-        >
-            <div className={styles.imageBox}>
-                <img
-                    src={country.flags.png}
-                    alt="germany flag"
-                />
-            </div>
-            <div className={styles.textBox}>
-                <h2 className={styles.countryName}>{country?.name?.official}</h2>
-                <div className={styles.infos}>
-                    <span className={styles.title}>
-                        Population:
-                        <span className={styles.descr}>
-                            {country.population}
-                        </span>
-                    </span>
-                    <span className={styles.title}>
-                        Region:{' '}
-                        <span className={styles.descr}>{country.region}</span>
-                    </span>
-                    <span className={styles.title}>
-                        Capital:{' '}
-                        <span className={styles.descr}>{country.capital}</span>
-                    </span>
+        <li className={styles.countryItem}>
+            <Link
+                to={`/country?current=${country.name.common}`}
+                
+            >
+                <div className={styles.imageBox}>
+                    <img
+                        src={country.flags.png}
+                        alt="germany flag"
+                    />
                 </div>
-            </div>
-        </Link>
+                <div className={styles.textBox}>
+                    <h2 className={styles.countryName}>
+                        {country?.name?.official}
+                    </h2>
+                    <div className={styles.infos}>
+                        <span className={styles.title}>
+                            Population:
+                            <span className={styles.descr}>
+                                {formatNumber(country.population)}
+                            </span>
+                        </span>
+                        <span className={styles.title}>
+                            Region:{' '}
+                            <span className={styles.descr}>
+                                {country.region}
+                            </span>
+                        </span>
+                        <span className={styles.title}>
+                            Capital:{' '}
+                            <span className={styles.descr}>
+                                {country.capital}
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </Link>
+        </li>
     )
 }
