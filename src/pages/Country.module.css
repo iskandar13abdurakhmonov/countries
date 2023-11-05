@@ -13,6 +13,7 @@
 }
 
 .imageBackground {
+    margin: 0 145px 0 0;
     width: 560px;
     height: 401px;
     position: relative;
@@ -33,29 +34,37 @@
 .info {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .countryName {
     margin: 0 0 38px 0;
+    font-weight: 800;
+    font-size: 32px;
 }
 
 .infoBox {
     margin: 0 0 84px 0;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 260px);
+    gap: 120px;
 }
 
 .infoLeft {
-    display: grid;
-
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
     margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .descr {
     margin: 0 20px 0 0;
+    font-size: 18px;
+    font-weight: 300;
 }
 
 .infoRight {
@@ -66,20 +75,30 @@
 .borderCountriesBox {
     display: flex;
     align-items: center;
+    max-width: 594px;
 }
 
-.borderCountriesTitle {}
+.borderCountriesTitle {
+    margin: 0 16px 0 0;
+    font-size: 18px;
+    font-weight: 600;
+}
 
-.borderCountries {}
+.borderCountries {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .borderCountry {
-    padding: 9px 28px;
-    background-color: transparent;
+    padding: 9px 28px 9px 28px;
+    font-weight: 18px;
+    color: hsl(200, 15%, 8%);
     border-radius: 3px;
     cursor: pointer;
     -webkit-box-shadow: 0px 4px 12px -6px rgba(34, 60, 80, 0.2);
     -moz-box-shadow: 0px 4px 12px -6px rgba(34, 60, 80, 0.2);
     box-shadow: 0px 4px 12px -6px rgba(34, 60, 80, 0.2);
+    
 }
 
 .borderCountry:not(:last-child) {

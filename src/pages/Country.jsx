@@ -8,6 +8,16 @@ const NAME_URL = 'https://restcountries.com/v3.1/name/'
 
 const CODE_URL = 'https://restcountries.com/v3.1/alpha/'
 
+const formatNumber = (number) => {
+    const numberString = String(number)
+    const reversedNumberString = numberString.split('').reverse().join('')
+    const formmattedNumberString = reversedNumberString.replace(
+        /(\d{3})(?=\d)/g,
+        '$1,'
+    )
+    return formmattedNumberString.split('').reverse().join('')
+}
+
 export default function Country() {
     const [country, setCountry] = useState({})
     const [error, setError] = useState('')
@@ -15,13 +25,17 @@ export default function Country() {
     const languages = country.languages
     const borderingCountries = country.borders
 
+    console.log(country)
+
     const navigate = useNavigate()
 
     const [searchParams] = useSearchParams()
 
     const current = searchParams.get('current')
 
-    console.log(current)
+    const population = country?.population
+
+    const formatedPopulation = formatNumber(population)
 
     const back = () => {
         navigate(-1)
@@ -53,6 +67,20 @@ export default function Country() {
         getCountry()
     }, [current])
 
+    const renderCountryBorders = () => {
+        return borderingCountries?.map((countryCode) => {
+            const countryName = async () => {
+                const res = await fetch(
+                    `https://restcountries.com/v3.1/alpha/${countryCode}`
+                )
+                const data = await res.json()
+                console.log(data[0].name.common)
+            }
+            countryName()
+        })
+    }
+    renderCountryBorders()
+
     return (
         <div className={styles.country}>
             <div className={styles.top}>
@@ -71,19 +99,21 @@ export default function Country() {
                     alt={country?.flags?.alt}
                 />
                 <div className={styles.info}>
-                    <h2 className={styles.countryName}></h2>
+                    <h2 className={styles.countryName}>
+                        {country?.name?.common}
+                    </h2>
                     <div className={styles.infoBox}>
                         <div className={styles.infoLeft}>
                             <span className={styles.title}>
                                 Native Name:{' '}
                                 <span className={styles.descr}>
-                                    {country?.name?.common}
+                                    {country?.name?.nativeName?.eng?.official}
                                 </span>
                             </span>
                             <span className={styles.title}>
                                 Population:{' '}
                                 <span className={styles.descr}>
-                                    {country?.population}
+                                    {formatedPopulation}
                                 </span>
                             </span>
                             <span className={styles.title}>
@@ -146,16 +176,22 @@ export default function Country() {
                         <span className={styles.borderCountriesTitle}>
                             Border Countries:{' '}
                         </span>
-                        {borderingCountries
-                            ? borderingCountries.map((borderingCountry) => (
-                                  <Link to={`/country?current=${borderingCountry}`}
-                                      key={borderingCountry}
-                                      className={styles.borderCountries}
-                                  >
-                                      {borderingCountry}
-                                  </Link>
-                              ))
-                            : ''}
+                        <ul className={styles.borderCountries}>
+                            {borderingCountries
+                                ? borderingCountries.map((borderingCountry) => (
+                                      <li
+                                          key={borderingCountry}
+                                          className={styles.borderCountry}
+                                      >
+                                          <Link
+                                              to={`/country?current=${borderingCountry}`}
+                                          >
+                                              {borderingCountry}
+                                          </Link>
+                                      </li>
+                                  ))
+                                : ''}
+                        </ul>
                     </div>
                 </div>
             </div>
