@@ -89,19 +89,24 @@ export default function Country() {
                     onClick={() => back()}
                 >
                     <BsArrowLeft />
-                    Back
+                    <span className={styles.btnText}>Back</span>
                 </button>
             </div>
+
             <div className={styles.box}>
-                <img
-                    className={styles.imageBackground}
-                    src={country?.flags?.png}
-                    alt={country?.flags?.alt}
-                />
+                <div className={styles.imageHolder}>
+                    <img
+                        className={styles.flagImage}
+                        src={country?.flags?.png}
+                        alt={country?.flags?.alt}
+                    />
+                </div>
+
                 <div className={styles.info}>
                     <h2 className={styles.countryName}>
                         {country?.name?.common}
                     </h2>
+
                     <div className={styles.infoBox}>
                         <div className={styles.infoLeft}>
                             <span className={styles.title}>
@@ -172,6 +177,7 @@ export default function Country() {
                             </span>
                         </div>
                     </div>
+
                     <div className={styles.borderCountriesBox}>
                         <span className={styles.borderCountriesTitle}>
                             Border Countries:{' '}
