@@ -1,15 +1,20 @@
 /* eslint-disable react/prop-types */
 import styles from './Form.module.css'
-import Select from 'react-select'
 import { HiMagnifyingGlass } from 'react-icons/hi2'
 import { useEffect, useState } from 'react'
+import {
+    MdOutlineKeyboardArrowDown,
+    MdOutlineKeyboardArrowUp,
+} from 'react-icons/md'
 
-const options = [
-    { value: 'africa', label: 'Africa' },
-    { value: 'merica', label: 'America' },
-    { value: 'asia', label: 'Asia' },
-    { value: 'europe', label: 'Europe' },
-    { value: 'oceania', label: 'Oceania' },
+const regions = [
+    { value: 'All', label: 'all' },
+    { value: 'Africa', label: 'africa' },
+    { value: 'Americas', label: 'americas' },
+    { value: 'Asia', label: 'asia' },
+    { value: 'Europe', label: 'europe' },
+    { value: 'Oceania', label: 'oceania' },
+    { value: 'Antarctic', label: 'antarctic' },
 ]
 
 export default function Form({
@@ -19,9 +24,8 @@ export default function Form({
     countries,
     setNoResults,
 }) {
-    const [selectedOption, setSelectedOption] = useState(null)
-
-    
+    const [activeRegion, setActiveRegion] = useState('Filter by Region')
+    const [opened, setOpened] = useState(false)
 
     useEffect(() => {
         const Search = (query) => {
@@ -60,6 +64,28 @@ export default function Form({
         Search(query)
     }, [query, countries])
 
+    const filterByRegion = (selected) => {
+        regions.map((option) => {
+            if (selected === 'All') {
+                setActiveRegion('Filter by Region')
+            } else if (option.value === selected) {
+                setActiveRegion(option.value)
+            }
+            return option
+        })
+
+        const filteredRegion = countries.filter(
+            (country) => country.region === selected
+        )
+
+        if (selected === 'All') {
+            setFilteredCountries(countries)
+        } else {
+            setFilteredCountries(filteredRegion)
+        }
+        setOpened(false)
+    }
+
     return (
         <div className={styles.formContainer}>
             <form className={styles.form}>
@@ -74,18 +100,38 @@ export default function Form({
                     />
                 </div>
             </form>
-            <Select
-                styles={{
-                    control: (baseStyles) => ({
-                        ...baseStyles,
-                        borderColor: 'transparent',
-                    }),
-                }}
-                placeholder={'Filter by Region'}
-                defaultValue={selectedOption}
-                onChange={setSelectedOption}
-                options={options}
-            />
+            <div
+                className={styles.select}
+                onClick={() => setOpened(!opened)}
+            >
+                <button className={styles.selectDefault}>
+                    <span className={styles.selectText}>{activeRegion}</span>
+                    {opened ? (
+                        <MdOutlineKeyboardArrowUp />
+                    ) : (
+                        <MdOutlineKeyboardArrowDown />
+                    )}
+                </button>
+                {opened ? (
+                    <ul className={styles.optionList}>
+                        {regions.map((option) => (
+                            <li
+                                className={styles.optionItem}
+                                key={option.value}
+                            >
+                                <button
+                                    className={styles.optionItemButton}
+                                    onClick={() => filterByRegion(option.value)}
+                                >
+                                    {option.value}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    ''
+                )}
+            </div>
         </div>
     )
 }

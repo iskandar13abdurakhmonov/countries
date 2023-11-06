@@ -79,7 +79,7 @@ export default function Country() {
             countryName()
         })
     }
-    renderCountryBorders()
+    renderCountryBorders()       
 
     return (
         <div className={styles.country}>

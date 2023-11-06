@@ -3,7 +3,6 @@ import {
     BrowserRouter as Rounter,
     Routes,
     Route,
-    useSearchParams,
 } from 'react-router-dom'
 import Home from './pages/Home'
 import Country from './pages/Country'
@@ -66,7 +65,9 @@ function App() {
                                                 setNoResults={setNoResults}
                                             />
                                             <CountryList
-                                                filteredCountries={filteredCountries}
+                                                filteredCountries={
+                                                    filteredCountries
+                                                }
                                             />
                                         </Home>
                                     }

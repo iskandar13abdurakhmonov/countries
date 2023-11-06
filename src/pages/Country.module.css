@@ -162,13 +162,14 @@
 }
 
 @media (max-width: 600px) {
-    .box {
-        
-    }
 
     .imageHolder {
         max-width: 500px;
         max-height: 300px;
+    }
+
+    .borderCountries {
+        width: 325px;
     }
 }
 
