@@ -14,7 +14,6 @@ const regions = [
     { value: 'Asia', label: 'asia' },
     { value: 'Europe', label: 'europe' },
     { value: 'Oceania', label: 'oceania' },
-    { value: 'Antarctic', label: 'antarctic' },
 ]
 
 export default function Form({
