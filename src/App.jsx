@@ -1,9 +1,5 @@
 import Header from './components/Header'
-import {
-    BrowserRouter as Rounter,
-    Routes,
-    Route,
-} from 'react-router-dom'
+import { BrowserRouter as Rounter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Country from './pages/Country'
 import Footer from './components/Footer'
@@ -19,6 +15,7 @@ function App() {
     const [filteredCountries, setFilteredCountries] = useState([])
     const [query, setQuery] = useState('')
     const [noResults, setNoResults] = useState(false)
+    const [darkMode, setDarkMode] = useState(false)
 
     useEffect(() => {
         const getCountries = async () => {
@@ -43,10 +40,17 @@ function App() {
         getCountries()
     }, [])
 
+    const handleThemeChange = () => {
+        setDarkMode(!darkMode)
+    }
+
     return (
-        <div className="App">
+        <div className={`App ${darkMode ? 'AppLight' : 'AppDark'}`}>
             <div className="wrapper">
-                <Header />
+                <Header
+                    onThemeChange={handleThemeChange}
+                    darkMode={darkMode}
+                />
                 <main className="main">
                     <div className="main__container">
                         <Rounter>
@@ -56,6 +60,7 @@ function App() {
                                     element={
                                         <Home>
                                             <Form
+                                                darkMode={darkMode}
                                                 countries={countries}
                                                 query={query}
                                                 setQuery={setQuery}
@@ -65,6 +70,7 @@ function App() {
                                                 setNoResults={setNoResults}
                                             />
                                             <CountryList
+                                                darkMode={darkMode}
                                                 filteredCountries={
                                                     filteredCountries
                                                 }
@@ -74,7 +80,7 @@ function App() {
                                 />
                                 <Route
                                     path="/country"
-                                    element={<Country />}
+                                    element={<Country darkMode={darkMode} />}
                                 />
                             </Routes>
                         </Rounter>

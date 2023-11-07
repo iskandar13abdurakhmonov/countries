@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import styles from './Country.module.css'
 
@@ -18,7 +19,7 @@ const formatNumber = (number) => {
     return formmattedNumberString.split('').reverse().join('')
 }
 
-export default function Country() {
+export default function Country({ darkMode }) {
     const [country, setCountry] = useState({})
     const [error, setError] = useState('')
     const [isLoading, setIsLoading] = useState(false)
@@ -79,13 +80,15 @@ export default function Country() {
             countryName()
         })
     }
-    renderCountryBorders()       
+    renderCountryBorders()
 
     return (
         <div className={styles.country}>
             <div className={styles.top}>
                 <button
-                    className={styles.backBtn}
+                    className={`${styles.backBtn} ${
+                        darkMode ? styles.backBtnLight : styles.backBtnDark
+                    }`}
                     onClick={() => back()}
                 >
                     <BsArrowLeft />
@@ -103,53 +106,143 @@ export default function Country() {
                 </div>
 
                 <div className={styles.info}>
-                    <h2 className={styles.countryName}>
+                    <h2
+                        className={`${styles.countryName} ${
+                            darkMode
+                                ? styles.countryNameLight
+                                : styles.countryNameDark
+                        }`}
+                    >
                         {country?.name?.common}
                     </h2>
 
                     <div className={styles.infoBox}>
                         <div className={styles.infoLeft}>
-                            <span className={styles.title}>
+                            <span
+                                className={`${styles.title} ${
+                                    darkMode
+                                        ? styles.titleLight
+                                        : styles.titleDark
+                                }`}
+                            >
                                 Native Name:{' '}
-                                <span className={styles.descr}>
+                                <span
+                                    className={`${styles.descr} ${
+                                        darkMode
+                                            ? styles.descrLight
+                                            : styles.descrDark
+                                    }`}
+                                >
                                     {country?.name?.nativeName?.eng?.official}
                                 </span>
                             </span>
-                            <span className={styles.title}>
+                            <span
+                                className={`${styles.title} ${
+                                    darkMode
+                                        ? styles.titleLight
+                                        : styles.titleDark
+                                }`}
+                            >
                                 Population:{' '}
-                                <span className={styles.descr}>
+                                <span
+                                    className={`${styles.descr} ${
+                                        darkMode
+                                            ? styles.descrLight
+                                            : styles.descrDark
+                                    }`}
+                                >
                                     {formatedPopulation}
                                 </span>
                             </span>
-                            <span className={styles.title}>
+                            <span
+                                className={`${styles.title} ${
+                                    darkMode
+                                        ? styles.titleLight
+                                        : styles.titleDark
+                                }`}
+                            >
                                 Region:{' '}
-                                <span className={styles.descr}>
+                                <span
+                                    className={`${styles.descr} ${
+                                        darkMode
+                                            ? styles.descrLight
+                                            : styles.descrDark
+                                    }`}
+                                >
                                     {country?.region}
                                 </span>
                             </span>
-                            <span className={styles.title}>
+                            <span
+                                className={`${styles.title} ${
+                                    darkMode
+                                        ? styles.titleLight
+                                        : styles.titleDark
+                                }`}
+                            >
                                 Sub Region:{' '}
-                                <span className={styles.descr}>
+                                <span
+                                    className={`${styles.descr} ${
+                                        darkMode
+                                            ? styles.descrLight
+                                            : styles.descrDark
+                                    }`}
+                                >
                                     {country?.subregion}
                                 </span>
                             </span>
-                            <span className={styles.title}>
+                            <span
+                                className={`${styles.title} ${
+                                    darkMode
+                                        ? styles.titleLight
+                                        : styles.titleDark
+                                }`}
+                            >
                                 Capital:{' '}
-                                <span className={styles.descr}>
+                                <span
+                                    className={`${styles.descr} ${
+                                        darkMode
+                                            ? styles.descrLight
+                                            : styles.descrDark
+                                    }`}
+                                >
                                     {country?.capital}
                                 </span>
                             </span>
                         </div>
                         <div className={styles.infoRight}>
-                            <span className={styles.title}>
+                            <span
+                                className={`${styles.title} ${
+                                    darkMode
+                                        ? styles.titleLight
+                                        : styles.titleDark
+                                }`}
+                            >
                                 Top Level Domain:{' '}
-                                <span className={styles.descr}>
+                                <span
+                                    className={`${styles.descr} ${
+                                        darkMode
+                                            ? styles.descrLight
+                                            : styles.descrDark
+                                    }`}
+                                >
                                     {country?.tld?.[0]}
                                 </span>
                             </span>
-                            <span className={styles.title}>
+                            <span
+                                className={`${styles.title} ${
+                                    darkMode
+                                        ? styles.titleLight
+                                        : styles.titleDark
+                                }`}
+                            >
                                 Currencies:{' '}
-                                <span className={styles.descr}>
+                                <span
+                                    className={`${styles.descr} ${
+                                        darkMode
+                                            ? styles.descrLight
+                                            : styles.descrDark
+                                    }`}
+                                >
                                     {country.currencies
                                         ? Object.keys(country.currencies)
                                               .map(
@@ -162,13 +255,23 @@ export default function Country() {
                                         : ''}
                                 </span>
                             </span>
-                            <span className={styles.title}>
+                            <span
+                                className={`${styles.title} ${
+                                    darkMode
+                                        ? styles.titleLight
+                                        : styles.titleDark
+                                }`}
+                            >
                                 Languages:{' '}
                                 {languages
                                     ? Object.keys(languages).map((language) => (
                                           <span
                                               key={language}
-                                              className={styles.descr}
+                                              className={`${styles.descr} ${
+                                                  darkMode
+                                                      ? styles.descrLight
+                                                      : styles.descrDark
+                                              }`}
                                           >
                                               {languages[language]}
                                           </span>
@@ -179,7 +282,13 @@ export default function Country() {
                     </div>
 
                     <div className={styles.borderCountriesBox}>
-                        <span className={styles.borderCountriesTitle}>
+                        <span
+                            className={`${styles.borderCountriesTitle} ${
+                                darkMode
+                                    ? styles.borderCountriesTitleLight
+                                    : styles.borderCountriesTitleDark
+                            }`}
+                        >
                             Border Countries:{' '}
                         </span>
                         <ul className={styles.borderCountries}>
@@ -187,7 +296,7 @@ export default function Country() {
                                 ? borderingCountries.map((borderingCountry) => (
                                       <li
                                           key={borderingCountry}
-                                          className={styles.borderCountry}
+                                          className={`${styles.borderCountry} ${darkMode ? styles.borderCountryLight : styles.borderCountryDark}`}
                                       >
                                           <Link
                                               to={`/country?current=${borderingCountry}`}

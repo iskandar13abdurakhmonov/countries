@@ -22,6 +22,7 @@ export default function Form({
     setFilteredCountries,
     countries,
     setNoResults,
+    darkMode,
 }) {
     const [activeRegion, setActiveRegion] = useState('Filter by Region')
     const [opened, setOpened] = useState(false)
@@ -87,14 +88,26 @@ export default function Form({
 
     return (
         <div className={styles.formContainer}>
-            <form className={styles.form}>
+            <form
+                className={`${styles.form} ${
+                    darkMode ? styles.formLight : styles.formDark
+                }`}
+            >
                 <div className={styles.inputBox}>
-                    <HiMagnifyingGlass />
+                    <HiMagnifyingGlass
+                        className={`${
+                            darkMode
+                                ? styles.formIconLight
+                                : styles.formIconDark
+                        }`}
+                    />
                     <input
                         type="text"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
-                        className={styles.input}
+                        className={`${styles.input} ${
+                            darkMode ? styles.inputLight : styles.inputDark
+                        }`}
                         placeholder="Search for a country..."
                     />
                 </div>
@@ -103,23 +116,59 @@ export default function Form({
                 className={styles.select}
                 onClick={() => setOpened(!opened)}
             >
-                <button className={styles.selectDefault}>
-                    <span className={styles.selectText}>{activeRegion}</span>
+                <button
+                    className={`${styles.selectDefault} ${
+                        darkMode
+                            ? styles.selectDefaultLight
+                            : styles.selectDefaultDark
+                    }`}
+                >
+                    <span
+                        className={`${styles.selectText} ${
+                            darkMode
+                                ? styles.selectTextLight
+                                : styles.selectTextDark
+                        }`}
+                    >
+                        {activeRegion}
+                    </span>
                     {opened ? (
-                        <MdOutlineKeyboardArrowUp />
+                        <MdOutlineKeyboardArrowUp
+                            className={`${
+                                darkMode
+                                    ? styles.dropdownIconLight
+                                    : styles.dropdownIconDark
+                            }`}
+                        />
                     ) : (
-                        <MdOutlineKeyboardArrowDown />
+                        <MdOutlineKeyboardArrowDown
+                            className={`${
+                                darkMode
+                                    ? styles.dropdownIconLight
+                                    : styles.dropdownIconDark
+                            }`}
+                        />
                     )}
                 </button>
                 {opened ? (
-                    <ul className={styles.optionList}>
+                    <ul
+                        className={`${styles.optionList} ${
+                            darkMode
+                                ? styles.optionListLight
+                                : styles.optionListDark
+                        }`}
+                    >
                         {regions.map((option) => (
                             <li
                                 className={styles.optionItem}
                                 key={option.value}
                             >
                                 <button
-                                    className={styles.optionItemButton}
+                                    className={`${styles.optionItemButton} ${
+                                        darkMode
+                                            ? styles.optionItemButtonLight
+                                            : styles.optionItemButtonDark
+                                    }`}
                                     onClick={() => filterByRegion(option.value)}
                                 >
                                     {option.value}

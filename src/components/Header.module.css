@@ -1,9 +1,17 @@
 .header {
     padding: 30px 0 26px 0;
-    background-color: hsl(0, 0%, 100%);
+
     -webkit-box-shadow: 0px 6px 10px -4px rgba(34, 60, 80, 0.2);
     -moz-box-shadow: 0px 6px 10px -4px rgba(34, 60, 80, 0.2);
     box-shadow: 0px 6px 10px -4px rgba(34, 60, 80, 0.2);
+}
+
+.headerLight {
+    background-color: hsl(0, 0%, 100%);
+}
+
+.headerDark {
+    background-color: hsl(209, 23%, 22%);
 }
 
 .headerContainer {
@@ -18,6 +26,14 @@
     font-size: 27px;
 }
 
+.logoLight {
+    color: hsl(200, 15%, 8%);
+}
+
+.logoDark {
+    color: hsl(0, 0%, 100%);
+}
+
 .toggleIcon {
     margin: 0 5px 0 0;
 }
@@ -28,6 +44,15 @@
     display: flex;
     align-items: center;
     background-color: transparent;
+    cursor: pointer;
+}
+
+.themeToggleLight {
+    color: hsl(200, 15%, 8%);
+}
+
+.themeToggleDark {
+    color: hsl(0, 0%, 100%);
 }
 
 @media (max-width: 430px) {

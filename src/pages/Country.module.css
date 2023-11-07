@@ -11,13 +11,23 @@
     display: flex;
     align-items: center;
     padding: 14px 40px 15px 33px;
-    background-color: hsl(0, 0%, 100%);
     -webkit-box-shadow: 0px 4px 12px -6px rgba(34, 60, 80, 0.2);
     -moz-box-shadow: 0px 4px 12px -6px rgba(34, 60, 80, 0.2);
     box-shadow: 0px 4px 12px -6px rgba(34, 60, 80, 0.2);
     border-radius: 5px;
     cursor: pointer;
 }
+
+.backBtnLight {
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(200, 15%, 8%);
+}
+
+.backBtnDark {
+    background-color: hsl(209, 23%, 22%);
+    color: hsl(0, 0%, 100%);
+}
+
 
 .btnText {
     margin: 0 0 0 12px;
@@ -52,6 +62,14 @@
     font-size: 32px;
 }
 
+.countryNameLight {
+    color: hsl(200, 15%, 8%);
+}
+
+.countryNameDark {
+    color: hsl(0, 0%, 100%);
+}
+
 .infoBox {
     margin: 0 0 59px 0;
     display: flex;
@@ -69,10 +87,26 @@
     font-weight: 600;
 }
 
+.titleLight {
+    color: hsl(200, 15%, 8%);
+}
+
+.titleDark {
+    color: hsl(0, 0%, 100%);
+}
+
 .descr {
     margin: 0 20px 0 0;
     font-size: 18px;
     font-weight: 300;
+}
+
+.descrLight {
+    color: hsl(200, 15%, 8%);
+}
+
+.descrDark {
+    color: hsl(0, 0%, 100%);
 }
 
 .infoRight {
@@ -93,6 +127,14 @@
     font-weight: 600;
 }
 
+.borderCountriesTitleLight {
+    color: hsl(200, 15%, 8%);
+}
+
+.borderCountriesTitleDark {
+    color: hsl(0, 0%, 100%);
+}
+
 .borderCountries {
     display: flex;
     flex-wrap: wrap;
@@ -110,8 +152,20 @@
     
 }
 
-.borderCountry a {
+.borderCountryLight {
+    background-color: hsl(0, 0%, 100%);
+}
+
+.borderCountryDark {
+    background-color: hsl(209, 23%, 22%);
+}
+
+.borderCountryLight a {
     color: hsl(200, 15%, 8%);
+}
+
+.borderCountryDark a {
+    color: hsl(0, 0%, 100%);
 }
 
 .borderCountry:not(:last-child) {
