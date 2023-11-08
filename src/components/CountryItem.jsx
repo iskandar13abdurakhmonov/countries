@@ -13,6 +13,9 @@ const formatNumber = (number) => {
 }
 
 export default function CountryItem({ country, darkMode }) {
+
+    console.log(country)
+
     return (
         <li
             className={`${styles.countryItem} ${
@@ -23,7 +26,7 @@ export default function CountryItem({ country, darkMode }) {
                 <div className={styles.imageBox}>
                     <img
                         src={country.flags.png}
-                        alt="germany flag"
+                        alt={country.flags.alt}
                     />
                 </div>
                 <div

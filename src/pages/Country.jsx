@@ -296,7 +296,11 @@ export default function Country({ darkMode }) {
                                 ? borderingCountries.map((borderingCountry) => (
                                       <li
                                           key={borderingCountry}
-                                          className={`${styles.borderCountry} ${darkMode ? styles.borderCountryLight : styles.borderCountryDark}`}
+                                          className={`${styles.borderCountry} ${
+                                              darkMode
+                                                  ? styles.borderCountryLight
+                                                  : styles.borderCountryDark
+                                          }`}
                                       >
                                           <Link
                                               to={`/country?current=${borderingCountry}`}
