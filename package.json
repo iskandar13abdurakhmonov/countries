@@ -11,6 +11,8 @@
     "server": "json-server --watch data/countries.json --port 3001 --delay 400"
   },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
     "axios": "^1.6.0",
     "json-server": "^0.17.3",
     "normalize.css": "^8.0.1",
@@ -25,7 +27,7 @@
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
     "eslint": "^8.45.0",
-    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "vite": "^4.4.5"
