@@ -40,8 +40,8 @@ Users should be able to:
 
 ### Links
 
--   Solution URL: [Add solution URL here](https://your-solution-url.com)
--   Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+-   Solution URL: [Github Repository](https://github.com/iskandar13abdurakhmonov/countries)
+-   Live Site URL: [Netlify Live Server](https://master--unrivaled-dolphin-171916.netlify.app/)
 
 ## My process
 
