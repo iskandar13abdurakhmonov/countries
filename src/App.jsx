@@ -18,7 +18,6 @@ function App() {
     const [darkMode, setDarkMode] = useState(false)
 
     useEffect(() => {
-        setTimeout(() => {
             const getCountries = async () => {
                 try {
                     const res = await fetch(
@@ -40,7 +39,6 @@ function App() {
                 }
             }
             getCountries()
-        }, 5000)
     }, [])
 
     const handleThemeChange = () => {
