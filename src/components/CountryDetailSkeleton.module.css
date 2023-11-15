@@ -1,0 +1,52 @@
+.skeletonBody {
+    padding: 20px;
+    margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+    animation: skeleton-loading 1s linear infinite alternate;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.skeletonImage {
+    margin: 0 100px 0 0;
+    width: 560px;
+    height: 401px;
+    background-color: hsl(209, 23%, 22%);
+    border-radius: 5px;
+}
+
+.skeletionTextbox {
+    display: flex;
+}
+
+.skeletonTextCol {
+    display: flex;
+    flex-direction: column;
+}
+
+.skeletonTextCol:first-child {
+    margin: 0 100px 0 0;
+}
+
+.skeletonText {
+    height: 10px;
+    width: 240px;
+    border-radius: 6px;
+    background: hsl(209, 23%, 22%);
+    margin: 10px 0 10px 0;
+}
+
+.skeletonText:last-child {
+    width: 220px;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(200, 20%, 95%);
+    }
+
+    100% {
+        background-color: hsl(209, 23%, 22%);
+    }
+}

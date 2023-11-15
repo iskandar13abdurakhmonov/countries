@@ -18,29 +18,29 @@ function App() {
     const [darkMode, setDarkMode] = useState(false)
 
     useEffect(() => {
-            setTimeout(() => {
-                const getCountries = async () => {
-                    try {
-                        const res = await fetch(
-                            'https://restcountries.com/v3.1/all'
+        setTimeout(() => {
+            const getCountries = async () => {
+                try {
+                    const res = await fetch(
+                        'https://restcountries.com/v3.1/all'
+                    )
+                    if (!res.ok) {
+                        throw new Error(
+                            'Something went wrong with fetching the data :('
                         )
-                        if (!res.ok) {
-                            throw new Error(
-                                'Something went wrong with fetching the data :('
-                            )
-                        }
-                        const data = await res.json()
-                        setCountriers(data)
-                        setFilteredCountries(data)
-                    } catch (err) {
-                        console.log(err)
-                        setError(err.message)
-                    } finally {
-                        setIsLoading(false)
                     }
+                    const data = await res.json()
+                    setCountriers(data)
+                    setFilteredCountries(data)
+                } catch (err) {
+                    console.log(err)
+                    setError(err.message)
+                } finally {
+                    setIsLoading(false)
                 }
-                getCountries()
-            }, 1000)
+            }
+            getCountries()
+        }, 1000)
     }, [])
 
     const handleThemeChange = () => {
