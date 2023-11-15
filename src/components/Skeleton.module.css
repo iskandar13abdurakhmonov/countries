@@ -1,0 +1,45 @@
+.skeletonBlog {
+    margin-bottom: 2em;
+    animation: scale 4s infinite;
+}
+
+.skeletonAvatar {
+    background: #e5e4e2;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.skeletonAuthor {
+    background: #e5e4e2;
+    height: 30px;
+    width: 150px;
+    margin-left: 1rem;
+    border-radius: 6px;
+}
+
+.skeletonImage {
+    height: 200px;
+    width: 320px;
+    border-radius: 6px;
+    background: #e5e4e2;
+    margin-top: 10px;
+}
+
+.skeletonFooter {
+    height: 30px;
+    width: 280px;
+    border-radius: 6px;
+    background: #e5e4e2;
+    margin-top: 10px;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(0.9)
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}

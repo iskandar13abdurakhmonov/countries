@@ -13,9 +13,6 @@ const formatNumber = (number) => {
 }
 
 export default function CountryItem({ country, darkMode }) {
-
-    console.log(country)
-
     return (
         <li
             className={`${styles.countryItem} ${

@@ -70,6 +70,7 @@ function App() {
                                                 setNoResults={setNoResults}
                                             />
                                             <CountryList
+                                                isLoading={isLoading}
                                                 darkMode={darkMode}
                                                 filteredCountries={
                                                     filteredCountries
