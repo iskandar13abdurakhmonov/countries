@@ -14,16 +14,15 @@ export default function CountryList({
     return (
         <div className={styles.countryListContainer}>
             <ul className={styles.countryList}>
-               
-                        <Skeleton />
-                {!isLoading &&
-                    newCountries.map((country) => (
-                        <CountryItem
-                            darkMode={darkMode}
-                            key={country.name.common}
-                            country={country}
-                        />
-                    ))}
+                {isLoading
+                    ? [1, 2, 3, 4, 5, 6, 7, 8].map((n) => <Skeleton key={n} />)
+                    : newCountries.map((country) => (
+                          <CountryItem
+                              darkMode={darkMode}
+                              key={country.name.common}
+                              country={country}
+                          />
+                      ))}
             </ul>
         </div>
     )

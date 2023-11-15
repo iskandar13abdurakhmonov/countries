@@ -10,7 +10,7 @@ import CountryList from './components/CountryList'
 function App() {
     const [countries, setCountriers] = useState([])
     const [error, setError] = useState('')
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
     const [country, setCountry] = useState([])
     const [filteredCountries, setFilteredCountries] = useState([])
     const [query, setQuery] = useState('')
@@ -18,26 +18,29 @@ function App() {
     const [darkMode, setDarkMode] = useState(false)
 
     useEffect(() => {
-        const getCountries = async () => {
-            try {
-                setIsLoading(true)
-                const res = await fetch('https://restcountries.com/v3.1/all')
-                if (!res.ok) {
-                    throw new Error(
-                        'Something went wrong with fetching the data :('
+        setTimeout(() => {
+            const getCountries = async () => {
+                try {
+                    const res = await fetch(
+                        'https://restcountries.com/v3.1/all'
                     )
+                    if (!res.ok) {
+                        throw new Error(
+                            'Something went wrong with fetching the data :('
+                        )
+                    }
+                    const data = await res.json()
+                    setCountriers(data)
+                    setFilteredCountries(data)
+                } catch (err) {
+                    console.log(err)
+                    setError(err.message)
+                } finally {
+                    setIsLoading(false)
                 }
-                const data = await res.json()
-                setCountriers(data)
-                setFilteredCountries(data)
-            } catch (err) {
-                console.log(err)
-                setError(err.message)
-            } finally {
-                setIsLoading(false)
             }
-        }
-        getCountries()
+            getCountries()
+        }, 5000)
     }, [])
 
     const handleThemeChange = () => {
