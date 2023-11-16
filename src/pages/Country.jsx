@@ -100,7 +100,7 @@ export default function Country({ darkMode }) {
                 </button>
             </div>
 
-            {true ? (
+            {isLoading ? (
                 <CountryDetailSkeletion />
             ) : (
                 <div className={styles.box}>
