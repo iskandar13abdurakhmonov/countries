@@ -41,3 +41,9 @@
         background-color: hsl(209, 23%, 22%);
     }
 }
+
+@media (max-width: 501px) {
+    .skeletonBlog {
+        max-width: 100%;
+    }
+}

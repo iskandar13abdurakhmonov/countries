@@ -8,16 +8,21 @@
     border-radius: 5px;
 }
 
-.skeletonImage {
-    margin: 0 100px 0 0;
+.skeletonImageHolder {
     width: 560px;
     height: 401px;
+    margin: 0 100px 0 0;
     background-color: hsl(209, 23%, 22%);
     border-radius: 5px;
 }
 
+.skeletonImage {
+    width: 100%;
+}
+
 .skeletionTextbox {
     display: flex;
+    width: 571px;
 }
 
 .skeletonTextCol {
@@ -48,5 +53,57 @@
 
     100% {
         background-color: hsl(209, 23%, 22%);
+    }
+}
+
+@media (max-width: 1200px) {
+    .skeletonTextCol:first-child {
+        margin: 0 50px 0 0;
+    }
+}
+
+@media (max-width: 1100px) {
+    .skeletonImageHolder {
+        margin: 0 50px 0 0;
+    }
+}
+
+@media (max-width: 1000px) {
+    .skeletonText {
+        max-width: 220px;
+    }
+}
+
+@media (max-width: 900px) {
+    .skeletionTextbox {
+        flex-direction: column;
+    }
+
+    .skeletonTextCol:first-child {
+        margin: 0 0 30px 0;
+    }
+}
+
+@media (max-width: 570px) {
+    .skeletonBody {
+        flex-direction: column;
+        overflow:scroll;
+    }
+
+    .skeletonImageHolder {
+        margin: 0 0 30px 0;
+        max-width: 450px;
+    }
+
+    .skeletionTextbox {
+        align-items: center;
+    }
+
+    .skeletonTextCol {
+        min-width: 450px;
+    }
+
+    .skeletonText {
+        max-width: 450px;
     }
 }

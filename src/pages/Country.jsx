@@ -69,7 +69,7 @@ export default function Country({ darkMode }) {
                 }
             }
             getCountry()
-        }, 1000)
+        }, 3000)
     }, [current])
 
     const renderCountryBorders = () => {
@@ -100,7 +100,7 @@ export default function Country({ darkMode }) {
                 </button>
             </div>
 
-            {isLoading ? (
+            {true ? (
                 <CountryDetailSkeletion />
             ) : (
                 <div className={styles.box}>
